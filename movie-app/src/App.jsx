@@ -1,20 +1,20 @@
 import { useState } from "react";
 import "./scss/App.scss";
 
+import Button from "./components/Button";
+
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
+      <p>
+        count : {count}
+      </p>
+      
+      
+      <Button /> {/* 해당부분 추가 */}
+      <button type="button" onClick={() => setCount(cnt => cnt+1)}>Click</button>
     </>
   );
 }
