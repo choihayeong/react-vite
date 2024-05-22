@@ -1,36 +1,15 @@
-import { useState, useEffect, useRef } from "react";
-import "./scss/App.scss";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./routes/Home";
 
-import Button from "./components/Button";
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />
+  }
+]);
 
 function App() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    console.log("aaa");
-  }, []);
-
-  const buttonRef = useRef();
-
-  const inputRef = useRef();
-  const inputChangeTest = () => {
-    console.log(inputRef.current.value);
-  };
-
-
-  return (
-    <>
-      <p>
-        count : {count}
-      </p>
-    
-      <Button btnRef={buttonRef} text="Click" buttonClickEvent={() => setCount(cnt => cnt+1)} /> {/* 해당부분 추가 */}
-
-      <hr />
-
-      <input type="text" ref={inputRef} onChange={inputChangeTest} placeholder="User Name" />
-    </>
-  );
+  return <RouterProvider router={router} />
 }
 
 export default App;
